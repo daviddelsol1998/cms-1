@@ -1,0 +1,22 @@
+<div
+  class="border border-gray-300 rounded-2xl">
+  <div
+    class="flex justify-between bg-gray-300 border p-4 rounded-t-2xl">
+    <h3>Contacts</h3>
+    <button
+      class="text-white p-2 rounded-lg bg-green-700">New Contact</button>
+  </div>
+  <div
+    class="p-3">
+    <div
+      class="flex justify-between border items-center rounded"
+      *ngFor="let contact of contacts">
+      <p
+        class="p-3">{{contact.name}}</p>
+      <img
+        class="w-[50px] p-1"
+        src="{{contact.imageUrl}}"
+        alt="{{contact.name}}">
+    </div>
+  </div>
+</div>
