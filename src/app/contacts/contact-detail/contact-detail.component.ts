@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { Contact } from '../contact.model';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-contact-detail',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './contact-detail.component.html',
   styleUrl: './contact-detail.component.css',
 })
 export class ContactDetailComponent {
-  contacts: Contact[] = [] 
+  @Input() contact: Contact;
+
+  constructor() {
+    console.log(this.contact);
+  }
 }

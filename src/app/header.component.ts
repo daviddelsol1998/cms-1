@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -6,12 +6,18 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [NgIf],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
   showDropdown = false;
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
+  }
+
+  @Output() selectedFeatureEvent = new EventEmitter<string>();
+
+  onSelected(selectedEvent: string) {
+    this.selectedFeatureEvent.emit(selectedEvent);
   }
 }
